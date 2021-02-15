@@ -66,7 +66,6 @@ export default function Home() {
   function handleSearch(event) {
     event.preventDefault()
     setSearch(searching)
-    searching = ''
   }
 
   return (
