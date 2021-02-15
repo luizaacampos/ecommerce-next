@@ -10,6 +10,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
+    width: 100vw;
     background-color: ${({ theme }) => theme.colors.primary};
     font-family: 'Roboto', sans-serif;
   }

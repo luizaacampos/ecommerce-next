@@ -121,12 +121,35 @@
           "category_id": null
         }
     ],
+    "categorias": [
+      {
+        "id": 1,
+        "name": "Televisores"
+      },
+      {
+        "id": 2,
+        "name": "Celulares"
+      },
+      {
+        "id": 3,
+        "name": "Lava-roupas"
+      },
+      {
+        "id": 4,
+        "name": "Notebooks"
+      },
+      {
+        "id": 5,
+        "name": "Câmeras fotográficas"
+      }
+    ],
     "theme": {
         "colors": {
           "primary": "#33B5E5",
-          "secondary": "#76ff03",
+          "secondary": "#469a10",
           "dark": "#237ea0",
           "contrastText": "#FFFFFF",
+          "black": "#3B3B3B",
           "wrong": "#d50000",
           "success": "#4CAF50"
         },

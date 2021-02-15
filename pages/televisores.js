@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import {StarFill} from '@styled-icons/bootstrap/StarFill'
+import Head from 'next/head'
 
 import { products } from '../db.json'
 import ProductsContainer from '../src/components/ProductsContainer'
@@ -13,18 +13,6 @@ import Header from '../src/components/Header'
 import Aside from '../src/components/Aside'
 import Container from '../src/components/Container'
 
-const ButtonsDiv = styled.div`
-  display: flex;
-`;
-
-const Star = styled(StarFill)`
-  color: ${({ theme }) => theme.colors.secondary};
-  width: 40px;
-  height: 40px;
-  margin-right: 20px;
-  cursor: pointer;
-`;
-
 
 export default function Home() {
   return (
@@ -33,22 +21,19 @@ export default function Home() {
     <Container>
       <Aside></Aside>
       <ProductsContainer>
-          {products.map((product) => {
-            return (
-              <ProductDiv>
-                <ProductImg src={product.photo}></ProductImg>
+       {products.filter(product => product.category_id === 1).map(filteredProduct => {
+           return (
+            <ProductDiv>
+                <ProductImg src={filteredProduct.photo}></ProductImg>
                 <ProductInfo>
-                  <h1>{product.name}</h1>
-                  <p>{product.description}</p>
-                  <h2>R$ {product.price}</h2>
-                  <ButtonsDiv>
-                    <Star />
-                    <Button>Adicionar ao carrinho</Button>
-                  </ButtonsDiv> 
+                  <h1>{filteredProduct.name}</h1>
+                  <p>{filteredProduct.description}</p>
+                  <h2>R$ {filteredProduct.price}</h2>
+                  <Button>Adicionar ao carrinho</Button>
                 </ProductInfo>
               </ProductDiv>
-            )
-          })}
+           )
+       })}
       </ProductsContainer>
     </Container>
     <Footer>Desenvolvido por Luiza Campos</Footer>

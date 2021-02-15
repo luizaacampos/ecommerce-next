@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 const ProductImg = styled.img`
-  width: 600px;
+  width: 45%;
   height: auto;
 `;
 
