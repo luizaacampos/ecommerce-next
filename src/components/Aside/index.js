@@ -24,6 +24,9 @@ export default function Aside() {
             <Link href="/">
                 <AElement>Todos os Produtos</AElement>
             </Link>
+            <Link href="/favoritos">
+                <AElement>Favoritos</AElement>
+            </Link>
             <br />
             <strong>Compre por categoria:</strong>
             <Link href="/televisores">
