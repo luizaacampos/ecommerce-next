@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const Footer = styled.footer`
+const FooterElement = styled.footer`
     background-color: ${({ theme }) => theme.colors.primary};
     text-align: center; 
     padding: 10px;
@@ -9,4 +9,8 @@ const Footer = styled.footer`
     border-top: 20px solid ${({ theme }) => theme.colors.dark};
 `;
 
-export default Footer
+export default function Footer() {
+    return (
+        <FooterElement>Desenvolvido por Luiza Campos</FooterElement>
+    )
+}

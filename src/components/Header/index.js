@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import Link from 'next/link'
 import {ShoppingCart} from '@styled-icons/heroicons-outline/ShoppingCart'
 
 const HeaderElement = styled.header`
@@ -22,7 +23,9 @@ const Cart = styled(ShoppingCart)`
 export default function Header() {
     return (
         <HeaderElement>
-            <Cart />
+            <Link href="/cart">
+                <Cart />
+            </Link>
         </HeaderElement>
     )
     

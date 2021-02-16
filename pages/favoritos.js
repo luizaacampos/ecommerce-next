@@ -36,7 +36,7 @@ export default function Home() {
        })} */}
       </ProductsContainer>
     </Container>
-    <Footer>Desenvolvido por Luiza Campos</Footer>
+    <Footer />
     </>
   )
 }

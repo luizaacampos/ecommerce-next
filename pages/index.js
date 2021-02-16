@@ -13,14 +13,8 @@ import Footer from '../src/components/Footer'
 import Header from '../src/components/Header'
 import Aside from '../src/components/Aside'
 import Container from '../src/components/Container'
-import { LeftTopArrowCircle } from 'styled-icons/boxicons-solid'
 
-// const [search, setSearch] = useState(null)
-
-// function handleSearch(event) {
-//   let userWord = event.target.value
-//   setSearch(userWord)
-// }
+export const cart = []
 
 const SearchDiv = styled.div`
   height: 50px;
@@ -47,7 +41,8 @@ const ButtonsDiv = styled.div`
 `;
 
 const Star = styled(StarFill)`
-  color: ${({ theme }) => theme.colors.secondary};
+  /* color: ${({ favorite }) => favorite ? `${({ theme }) => theme.colors.yellow}` : `${({ theme }) => theme.colors.gray}`}; */
+  color: ${({ theme }) => theme.colors.yellow};
   width: 40px;
   height: 40px;
   margin-right: 20px;
@@ -57,20 +52,34 @@ const Star = styled(StarFill)`
 export default function Home() {
 
   const [search, setSearch] = useState(null)
-  let searching = ''
+  const [searching, setSearching] = useState('')
+
+  // const [favorite, setFavorite] = useState(false)
+
+  // const [cart, setCart] = useState([])
 
   function getSearch(event) {
-    searching = event.target.value
+    setSearching(event.target.value)
   }
 
   function handleSearch(event) {
     event.preventDefault()
     setSearch(searching)
+
+    setSearching('')
+    setSearch(searching)
+  }
+
+  function handleStarClick() {}
+
+  function handleAddToCart(productId) {
+    cart.push(productId)
+    alert('Produto adicionado ao carrinho de compras!')
   }
 
   return (
     <>
-    <Header></Header>
+    <Header />
     <SearchDiv>
       <form onSubmit={handleSearch}>
         <input type="text" onChange={getSearch} placeholder="Pesquise por um produto"></input>
@@ -78,18 +87,17 @@ export default function Home() {
       </form>
     </SearchDiv>
     <Container>
-      <Aside></Aside>
+      <Aside />
       <ProductsContainer>
-      {console.log(products[0].name.includes(search))}
-          {search && products.filter(product => product.name.includes(search)).map(filteredProduct => {
+          {search && products.filter(product => (product.name.toLowerCase()).includes(search.toLowerCase())).map(filteredProduct => {
             return (
-            <ProductDiv>
+            <ProductDiv key={filteredProduct.id}>
                 <ProductImg src={filteredProduct.photo}></ProductImg>
                 <ProductInfo>
                   <h1>{filteredProduct.name}</h1>
                   <p>{filteredProduct.description}</p>
-                  <h2>R$ {filteredProduct.price}</h2>
-                  <Button>Adicionar ao carrinho</Button>
+                  <h2>R$ {filteredProduct.price.toFixed(2)}</h2>
+                  <Button onClick={() => handleAddToCart(filteredProduct.id)}>Adicionar ao carrinho</Button>
                 </ProductInfo>
               </ProductDiv>
            )
@@ -101,12 +109,12 @@ export default function Home() {
                 <ProductInfo>
                   <h1>{product.name}</h1>
                   <p>{product.description}</p>
-                  <h2>R$ {product.price}</h2>
+                  <h2>R$ {product.price.toFixed(2)}</h2>
                   <ButtonsDiv>
-                    <a>
+                    <a onClick={handleStarClick}>
                       <Star />
                     </a>
-                    <Button>Adicionar ao carrinho</Button>
+                    <Button onClick={() => handleAddToCart(product.id)}>Adicionar ao carrinho</Button>
                   </ButtonsDiv> 
                 </ProductInfo>
               </ProductDiv>
@@ -114,7 +122,7 @@ export default function Home() {
           })}
       </ProductsContainer>
     </Container>
-    <Footer>Desenvolvido por Luiza Campos</Footer>
+    <Footer />
     </>
   )
 }
