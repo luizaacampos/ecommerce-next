@@ -43,7 +43,7 @@ const ButtonsDiv = styled.div`
 `;
 
 const Star = styled(StarFill)`
-  color: ${({ theme }) => theme.colors.gray};
+  color: ${({ theme }) => theme.colors.yellow};
   width: 40px;
   height: 40px;
   margin-right: 20px;
@@ -63,10 +63,6 @@ export default function Home() {
     event.preventDefault()
     setSearch(searching)
   }
-
-  // async function cleanSearch() {
-  //   setSearch(null)
-  // }
 
   function handleAddToFavorites(productId) {
     if (!favorites.includes(productId)) {

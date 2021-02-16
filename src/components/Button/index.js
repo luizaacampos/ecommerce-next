@@ -6,12 +6,13 @@ const Button = styled.button`
   border-radius: 5px;
   padding: 15px; 
   height: 50px;
-  max-width: 150px;
+  max-width: 300px;
   color: ${({ theme }) => theme.colors.contrastText};
   cursor: pointer;
   margin-bottom: 20px;
   text-transform: uppercase;
   font-weight: bold;
+  align-items: center;
 `;
 
 export default Button

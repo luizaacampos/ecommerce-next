@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Link from 'next/link'
 
 import { cart } from './index'
 import { products } from '../db.json'
@@ -8,6 +9,12 @@ import Footer from '../src/components/Footer'
 import Header from '../src/components/Header'
 import Container from '../src/components/Container'
 
+export const valores = []
+export const reducer = (accumulator, currentValue) => accumulator + currentValue
+
+const StyledLink = styled(Link)`
+    text-decoration: none;
+  `;
 
 const ProductsContainer = styled.div`
   width: 100vw;
@@ -48,12 +55,6 @@ const ActionDiv = styled.div`
 
 export default function Cart() {
 
-    const total = []
-
-    function getTotal(total, num) {
-        return total + num
-    }
-
     return (
         <>
         <Header />
@@ -61,7 +62,8 @@ export default function Cart() {
           <ProductsContainer>
               <h1>Carrinho de compras</h1>
               {products.filter(product => cart.includes(product.id)).map(filteredProduct => {
-                  total.push(filteredProduct.price)
+                  valores.push(filteredProduct.price)
+                  console.log(valores)
                   return (
                       <Div key={filteredProduct.id}>
                         <Img src={filteredProduct.photo} />
@@ -74,8 +76,8 @@ export default function Cart() {
                   )
               })}
             <ActionDiv>
-                <h1>TOTAL R$ {!total === [] ? total.reduce(getTotal).toFixed(2) : null}</h1>
-                <Button>Fechar pedido</Button>
+                <h1>TOTAL R$ {valores !== [] ? valores.reduce(reducer, 0).toFixed(2) : null}</h1>
+                <Button><StyledLink href="/pagamento">Fechar pedido</StyledLink></Button>
             </ActionDiv>
           </ProductsContainer>
         </Container>
