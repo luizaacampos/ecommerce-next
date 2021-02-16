@@ -13,8 +13,10 @@ import Footer from '../src/components/Footer'
 import Header from '../src/components/Header'
 import Aside from '../src/components/Aside'
 import Container from '../src/components/Container'
+import { First } from 'styled-icons/icomoon'
 
 export const cart = []
+export const favorites = []
 
 const SearchDiv = styled.div`
   height: 50px;
@@ -41,8 +43,7 @@ const ButtonsDiv = styled.div`
 `;
 
 const Star = styled(StarFill)`
-  /* color: ${({ favorite }) => favorite ? `${({ theme }) => theme.colors.yellow}` : `${({ theme }) => theme.colors.gray}`}; */
-  color: ${({ theme }) => theme.colors.yellow};
+  color: ${({ theme }) => theme.colors.gray};
   width: 40px;
   height: 40px;
   margin-right: 20px;
@@ -54,10 +55,6 @@ export default function Home() {
   const [search, setSearch] = useState(null)
   const [searching, setSearching] = useState('')
 
-  // const [favorite, setFavorite] = useState(false)
-
-  // const [cart, setCart] = useState([])
-
   function getSearch(event) {
     setSearching(event.target.value)
   }
@@ -65,12 +62,25 @@ export default function Home() {
   function handleSearch(event) {
     event.preventDefault()
     setSearch(searching)
-
-    setSearching('')
-    setSearch(searching)
   }
 
-  function handleStarClick() {}
+  // async function cleanSearch() {
+  //   setSearch(null)
+  // }
+
+  function handleAddToFavorites(productId) {
+    if (!favorites.includes(productId)) {
+      favorites.push(productId)
+  
+      // this.style.color = `${({ theme }) => theme.colors.yellow}`
+      alert('Produto adicionado aos favoritos')
+      console.log(favorites)
+      console.log(this)
+    } else {
+      alert('Produto já é um favorito!')
+    }
+    
+  }
 
   function handleAddToCart(productId) {
     cart.push(productId)
@@ -111,7 +121,7 @@ export default function Home() {
                   <p>{product.description}</p>
                   <h2>R$ {product.price.toFixed(2)}</h2>
                   <ButtonsDiv>
-                    <a onClick={handleStarClick}>
+                    <a onClick={handleAddToFavorites.bind(this, product.id)}>
                       <Star />
                     </a>
                     <Button onClick={() => handleAddToCart(product.id)}>Adicionar ao carrinho</Button>

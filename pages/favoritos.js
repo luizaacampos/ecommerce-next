@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Head from 'next/head'
 
 import { products } from '../db.json'
+import { favorites } from './index'
 import ProductsContainer from '../src/components/ProductsContainer'
 import ProductDiv from '../src/components/ProductDiv'
 import ProductImg from '../src/components/ProductImg'
@@ -21,9 +22,10 @@ export default function Home() {
     <Container>
       <Aside></Aside>
       <ProductsContainer>
-       {/* {products.filter(product => product.category_id === 3).map(filteredProduct => {
+      <h1>Seus produtos favoritos</h1>
+      {products.filter(product => favorites.includes(product.id)).map(filteredProduct => {
            return (
-            <ProductDiv>
+            <ProductDiv key={filteredProduct.id}>
                 <ProductImg src={filteredProduct.photo}></ProductImg>
                 <ProductInfo>
                   <h1>{filteredProduct.name}</h1>
@@ -33,7 +35,7 @@ export default function Home() {
                 </ProductInfo>
               </ProductDiv>
            )
-       })} */}
+       })}
       </ProductsContainer>
     </Container>
     <Footer />

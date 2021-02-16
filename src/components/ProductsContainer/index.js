@@ -4,6 +4,9 @@ const ProductsContainer = styled.div`
   width: 80vw;
   padding-top: 45px;
   background-color: ${({ theme }) => theme.colors.contrastText};
+  h1 {
+    text-align: center;
+  }
 `;
 
 export default ProductsContainer
