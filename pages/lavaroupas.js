@@ -13,6 +13,8 @@ import Header from '../src/components/Header'
 import Aside from '../src/components/Aside'
 import Container from '../src/components/Container'
 
+const format = { minimumFractionDigits: 2 }
+
 
 export default function Home() {
   return (
@@ -28,7 +30,7 @@ export default function Home() {
                 <ProductInfo>
                   <h1>{filteredProduct.name}</h1>
                   <p>{filteredProduct.description}</p>
-                  <h2>R$ {filteredProduct.price}</h2>
+                  <h2>R$ {filteredProduct.price.toLocaleString('pt-BR', format)}</h2>
                   <Button>Adicionar ao carrinho</Button>
                 </ProductInfo>
               </ProductDiv>

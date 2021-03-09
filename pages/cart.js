@@ -53,6 +53,8 @@ const ActionDiv = styled.div`
       padding: 20px 50px;
 `;
 
+const format = { minimumFractionDigits: 2 }
+
 export default function Cart() {
 
     return (
@@ -70,13 +72,13 @@ export default function Cart() {
                         <Info>
                             <h3>{filteredProduct.name}</h3> 
                             <p>Quantidade: 1</p> 
-                            <p>Valor: R$ {filteredProduct.price.toFixed(2)}</p>
+                            <p>Valor: R$ {filteredProduct.price.toLocaleString('pt-BR', format)}</p>
                         </Info>
                       </Div>
                   )
               })}
             <ActionDiv>
-                <h1>TOTAL R$ {valores !== [] ? valores.reduce(reducer, 0).toFixed(2) : null}</h1>
+                <h1>TOTAL R$ {valores !== [] ? valores.reduce(reducer, 0).toLocaleString('pt-BR', format) : null}</h1>
                 <Button><StyledLink href="/pagamento">Fechar pedido</StyledLink></Button>
             </ActionDiv>
           </ProductsContainer>

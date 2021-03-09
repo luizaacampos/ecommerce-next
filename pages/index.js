@@ -13,7 +13,6 @@ import Footer from '../src/components/Footer'
 import Header from '../src/components/Header'
 import Aside from '../src/components/Aside'
 import Container from '../src/components/Container'
-import { First } from 'styled-icons/icomoon'
 
 export const cart = []
 export const favorites = []
@@ -83,6 +82,8 @@ export default function Home() {
     alert('Produto adicionado ao carrinho de compras!')
   }
 
+  const format = { minimumFractionDigits: 2 }
+
   return (
     <>
     <Header />
@@ -102,7 +103,7 @@ export default function Home() {
                 <ProductInfo>
                   <h1>{filteredProduct.name}</h1>
                   <p>{filteredProduct.description}</p>
-                  <h2>R$ {filteredProduct.price.toFixed(2)}</h2>
+                  <h2>R$ {filteredProduct.price.toLocaleString('pt-BR', format)}</h2>
                   <Button onClick={() => handleAddToCart(filteredProduct.id)}>Adicionar ao carrinho</Button>
                 </ProductInfo>
               </ProductDiv>
@@ -115,7 +116,7 @@ export default function Home() {
                 <ProductInfo>
                   <h1>{product.name}</h1>
                   <p>{product.description}</p>
-                  <h2>R$ {product.price.toFixed(2)}</h2>
+                  <h2>R$ {product.price.toLocaleString('pt-BR', format)}</h2>
                   <ButtonsDiv>
                     <a onClick={handleAddToFavorites.bind(this, product.id)}>
                       <Star />
