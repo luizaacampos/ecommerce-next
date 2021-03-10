@@ -15,6 +15,9 @@ const AsideElement = styled.aside`
 const AElement = styled.a`
     cursor: pointer;
     text-decoration: underline;
+    &:hover {
+        font-weight: bold;
+    }
 `;
 
 export default function Aside() {
@@ -24,6 +27,7 @@ export default function Aside() {
             <Link href="/">
                 <AElement>Todos os Produtos</AElement>
             </Link>
+            <br />
             <Link href="/favoritos">
                 <AElement>Favoritos</AElement>
             </Link>

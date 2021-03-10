@@ -20,21 +20,27 @@ export const favorites = []
 const SearchDiv = styled.div`
   height: 50px;
   text-align: center;
-  align-items: center;
+  
   padding-top: 10px;
+  
   input {
     height: 30px;
-    padding-right: 15px
+    padding-right: 15px;
+    border: 0;
   }
   button {
     height: 30px;
     width: 30px;
+    border: 0;
+    background-color: ${({ theme }) => theme.colors.dark};
+    border-radius: 0 5px 5px 0;
+    transform: translate(0, -3%);
   }
 `;
 
 const Search = styled(SearchAlt)`
     cursor: pointer;
-    color: ${({ theme }) => theme.colors.dark};
+    color: ${({ theme }) => theme.colors.primary};
 `;
 
 const ButtonsDiv = styled.div`
@@ -42,7 +48,7 @@ const ButtonsDiv = styled.div`
 `;
 
 const Star = styled(StarFill)`
-  color: ${({ theme }) => theme.colors.yellow};
+  color: ${({ theme }) => theme.colors.gray};
   width: 40px;
   height: 40px;
   margin-right: 20px;

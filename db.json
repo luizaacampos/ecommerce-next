@@ -146,14 +146,14 @@
     "theme": {
         "colors": {
           "primary": "#33B5E5",
-          "secondary": "#469a10",
+          "secondary": "#d7f852",
           "dark": "#237ea0",
           "contrastText": "#FFFFFF",
           "yellow": "#ffea00",
           "gray": "#E1E1E1",
           "black": "#3B3B3B",
           "wrong": "#d50000",
-          "success": "#4CAF50"
+          "success": "#469a10"
         },
         "borderRadius": "4px"
     }

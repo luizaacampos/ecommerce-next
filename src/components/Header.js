@@ -11,18 +11,25 @@ const HeaderElement = styled.header`
     color: ${({ theme }) => theme.colors.contrastText};
     border-bottom: 10px solid ${({ theme }) => theme.colors.dark};
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    text-align: center;
+    h1 {
+        color: ${({ theme }) => theme.colors.secondary};
+        margin: 0 0 0 100px;
+        font-size: 50px;
+    }
 `;
 
 const Cart = styled(ShoppingCart)`
     color: ${({ theme }) => theme.colors.dark};
     cursor: pointer;
-    align-items: flex-end;
+    margin-right: 80px;
 `;
 
 export default function Header() {
     return (
         <HeaderElement>
+            <h1>BUY.</h1>
             <Link href="/cart">
                 <Cart />
             </Link>
