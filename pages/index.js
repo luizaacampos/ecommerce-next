@@ -47,19 +47,23 @@ const ButtonsDiv = styled.div`
   display: flex;
 `;
 
-const Star = styled(StarFill)`
+let Star = styled(StarFill)`
   color: ${({ theme }) => theme.colors.gray};
   width: 40px;
   height: 40px;
   margin-right: 20px;
   cursor: pointer;
+  &:active {
+    color: ${({ theme }) => theme.colors.yellow}
+  }
 `;
 
 export default function Home() {
 
   const [search, setSearch] = useState(null)
   const [searching, setSearching] = useState('')
-
+  // const [active, setActive] = useState(false)
+  
   function getSearch(event) {
     setSearching(event.target.value)
   }
@@ -69,18 +73,17 @@ export default function Home() {
     setSearch(searching)
   }
 
-  function handleAddToFavorites(productId) {
-    if (!favorites.includes(productId)) {
-      favorites.push(productId)
-  
-      // this.style.color = `${({ theme }) => theme.colors.yellow}`
-      alert('Produto adicionado aos favoritos')
-      console.log(favorites)
-      console.log(this)
-    } else {
-      alert('Produto já é um favorito!')
-    }
+  function handleAddToFavorites(productId)  {
     
+    if (favorites.includes(productId)) {
+      alert('Esse produto já é um favorito')
+      return
+    } else {
+      favorites.push(productId)
+      setActive(true)
+      alert('Produto adicionado aos favoritos')
+      // this.style.color = `${({ theme }) => theme.colors.yellow}`
+    } 
   }
 
   function handleAddToCart(productId) {
@@ -124,7 +127,7 @@ export default function Home() {
                   <p>{product.description}</p>
                   <h2>R$ {product.price.toLocaleString('pt-BR', format)}</h2>
                   <ButtonsDiv>
-                    <a onClick={handleAddToFavorites.bind(this, product.id)}>
+                    <a onClick={() => handleAddToFavorites(product.id)}>
                       <Star />
                     </a>
                     <Button onClick={() => handleAddToCart(product.id)}>Adicionar ao carrinho</Button>
