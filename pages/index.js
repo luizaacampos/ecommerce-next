@@ -35,12 +35,18 @@ const SearchDiv = styled.div`
     background-color: var(--dark);
     border-radius: 0 5px 5px 0;
     transform: translate(0, -3%);
+    &:hover {
+      background-color: var(--primary);
+    }
   }
 `;
 
 const Search = styled(SearchAlt)`
     cursor: pointer;
     color: var(--primary);
+    &:hover {
+      color: var(--dark);
+    }
 `;
 
 const ButtonsDiv = styled.div`
@@ -53,16 +59,16 @@ let Star = styled(StarFill)`
   height: 40px;
   margin-right: 20px;
   cursor: pointer;
-  &:active {
+  /* &:isFavorite {
     color: var(--yellow);
-  }
+  } */
 `;
 
 export default function Home() {
 
   const [search, setSearch] = useState(null)
   const [searching, setSearching] = useState('')
-  // const [active, setActive] = useState(false)
+  const [active, setActive] = useState(false)
   
   function getSearch(event) {
     setSearching(event.target.value)
@@ -80,9 +86,10 @@ export default function Home() {
       return
     } else {
       favorites.push(productId)
-      // setActive(true)
       alert('Produto adicionado aos favoritos')
-      // this.style.color = `${({ theme }) => theme.colors.yellow}`
+      // setActive(true)
+      // style.color = 'var(--yellow)'
+      // products[e].isFavorite = true
     } 
   }
 

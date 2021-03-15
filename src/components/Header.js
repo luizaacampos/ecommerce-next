@@ -24,6 +24,10 @@ const Cart = styled(ShoppingCart)`
     color: var(--dark);
     cursor: pointer;
     margin-right: 80px;
+    &:hover {
+        width: 50px;
+        height: 60px;
+    }
 `;
 
 export default function Header() {
