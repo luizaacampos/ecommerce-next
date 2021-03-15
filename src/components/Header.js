@@ -3,25 +3,25 @@ import Link from 'next/link'
 import {ShoppingCart} from '@styled-icons/heroicons-outline/ShoppingCart'
 
 const HeaderElement = styled.header`
-    background-color: ${({ theme }) => theme.colors.primary};
+    background-color: var(--primary);
     text-align: center; 
     padding: 10px 50px;
     height: 80px;
     width: 100vw;
-    color: ${({ theme }) => theme.colors.contrastText};
-    border-bottom: 10px solid ${({ theme }) => theme.colors.dark};
+    color: var(--contrastText);
+    border-bottom: 10px solid var(--dark);
     display: flex;
     justify-content: space-between;
     text-align: center;
     h1 {
-        color: ${({ theme }) => theme.colors.secondary};
+        color: var(--secondary);
         margin: 0 0 0 100px;
         font-size: 50px;
     }
 `;
 
 const Cart = styled(ShoppingCart)`
-    color: ${({ theme }) => theme.colors.dark};
+    color: var(--dark);
     cursor: pointer;
     margin-right: 80px;
 `;

@@ -1,6 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
-import Head from 'next/head'
 
 import { products } from '../db.json'
 import ProductsContainer from '../src/components/ProductsContainer'
@@ -15,12 +13,12 @@ import Container from '../src/components/Container'
 
 const format = { minimumFractionDigits: 2 }
 
-export default function Home() {
+export default function Celulares() {
   return (
     <>
-    <Header></Header>
+    <Header />
     <Container>
-      <Aside></Aside>
+      <Aside />
       <ProductsContainer>
        {products.filter(product => product.category_id === 2).map(filteredProduct => {
            return (

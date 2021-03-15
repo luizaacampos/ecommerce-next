@@ -32,7 +32,7 @@ const SearchDiv = styled.div`
     height: 30px;
     width: 30px;
     border: 0;
-    background-color: ${({ theme }) => theme.colors.dark};
+    background-color: var(--dark);
     border-radius: 0 5px 5px 0;
     transform: translate(0, -3%);
   }
@@ -40,7 +40,7 @@ const SearchDiv = styled.div`
 
 const Search = styled(SearchAlt)`
     cursor: pointer;
-    color: ${({ theme }) => theme.colors.primary};
+    color: var(--primary);
 `;
 
 const ButtonsDiv = styled.div`
@@ -48,13 +48,13 @@ const ButtonsDiv = styled.div`
 `;
 
 let Star = styled(StarFill)`
-  color: ${({ theme }) => theme.colors.gray};
+  color: var(--gray);
   width: 40px;
   height: 40px;
   margin-right: 20px;
   cursor: pointer;
   &:active {
-    color: ${({ theme }) => theme.colors.yellow}
+    color: var(--yellow);
   }
 `;
 
@@ -80,7 +80,7 @@ export default function Home() {
       return
     } else {
       favorites.push(productId)
-      setActive(true)
+      // setActive(true)
       alert('Produto adicionado aos favoritos')
       // this.style.color = `${({ theme }) => theme.colors.yellow}`
     } 

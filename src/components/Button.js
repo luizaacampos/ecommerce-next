@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 
 const Button = styled.button`
-  background-color: ${({ theme }) => theme.colors.success};
+  background-color: var(--success);
   border: 0;
   border-radius: 5px;
   padding: 15px; 
   height: 50px;
   max-width: 300px;
-  color: ${({ theme }) => theme.colors.contrastText};
+  color: var(--contrastText);
   cursor: pointer;
   margin-bottom: 20px;
   text-transform: uppercase;

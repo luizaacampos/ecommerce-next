@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import Head from 'next/head'
 
 import { products } from '../db.json'
 import { favorites } from './index'
@@ -14,30 +13,38 @@ import Header from '../src/components/Header'
 import Aside from '../src/components/Aside'
 import Container from '../src/components/Container'
 
+const P = styled.p`
+  color: var(--black);
+  text-align: center;
+  margin: 10px;
+  font-style: italic;
+`
+
 const format = { minimumFractionDigits: 2 }
 
 
-export default function Home() {
+export default function Favoritos() {
   return (
     <>
-    <Header></Header>
+    <Header />
     <Container>
-      <Aside></Aside>
+      <Aside />
       <ProductsContainer>
-      <h1>Seus produtos favoritos</h1>
-      {products.filter(product => favorites.includes(product.id)).map(filteredProduct => {
-           return (
-            <ProductDiv key={filteredProduct.id}>
-                <ProductImg src={filteredProduct.photo}></ProductImg>
-                <ProductInfo>
-                  <h1>{filteredProduct.name}</h1>
-                  <p>{filteredProduct.description}</p>
-                  <h2>R$ {filteredProduct.price.toLocaleString('pt-BR', format)}</h2>
-                  <Button>Adicionar ao carrinho</Button>
-                </ProductInfo>
-              </ProductDiv>
-           )
-       })}
+        <h1>Seus produtos favoritos</h1>
+        {favorites.length === 0 && <P>Você ainda não adicionou produtos aos favoritos.</P>}
+        {favorites && products.filter(product => favorites.includes(product.id)).map(filteredProduct => {
+            return (
+              <ProductDiv key={filteredProduct.id}>
+                  <ProductImg src={filteredProduct.photo}></ProductImg>
+                  <ProductInfo>
+                    <h1>{filteredProduct.name}</h1>
+                    <p>{filteredProduct.description}</p>
+                    <h2>R$ {filteredProduct.price.toLocaleString('pt-BR', format)}</h2>
+                    <Button>Adicionar ao carrinho</Button>
+                  </ProductInfo>
+                </ProductDiv>
+            )
+        })}
       </ProductsContainer>
     </Container>
     <Footer />

@@ -1,6 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
-import Head from 'next/head'
 
 import { products } from '../db.json'
 import ProductsContainer from '../src/components/ProductsContainer'
@@ -16,26 +14,26 @@ import Container from '../src/components/Container'
 const format = { minimumFractionDigits: 2 }
 
 
-export default function Home() {
+export default function Lavaroupas() {
   return (
     <>
-    <Header></Header>
+    <Header />
     <Container>
-      <Aside></Aside>
+      <Aside />
       <ProductsContainer>
-       {products.filter(product => product.category_id === 3).map(filteredProduct => {
-           return (
-            <ProductDiv>
-                <ProductImg src={filteredProduct.photo}></ProductImg>
-                <ProductInfo>
-                  <h1>{filteredProduct.name}</h1>
-                  <p>{filteredProduct.description}</p>
-                  <h2>R$ {filteredProduct.price.toLocaleString('pt-BR', format)}</h2>
-                  <Button>Adicionar ao carrinho</Button>
-                </ProductInfo>
-              </ProductDiv>
-           )
-       })}
+        {products.filter(product => product.category_id === 3).map(filteredProduct => {
+            return (
+              <ProductDiv>
+                  <ProductImg src={filteredProduct.photo}></ProductImg>
+                  <ProductInfo>
+                    <h1>{filteredProduct.name}</h1>
+                    <p>{filteredProduct.description}</p>
+                    <h2>R$ {filteredProduct.price.toLocaleString('pt-BR', format)}</h2>
+                    <Button>Adicionar ao carrinho</Button>
+                  </ProductInfo>
+                </ProductDiv>
+            )
+        })}
       </ProductsContainer>
     </Container>
     <Footer />

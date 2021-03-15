@@ -8,8 +8,8 @@ const AsideElement = styled.aside`
     flex-direction: column;
     text-align:center;
     font-size: 20px;
-    border-right: 2px solid ${({ theme }) => theme.colors.dark};
-    color: ${({ theme }) => theme.colors.black};
+    border-right: 2px solid var(--dark);
+    color: var(--black);
 `;
 
 const AElement = styled.a`

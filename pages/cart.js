@@ -20,14 +20,14 @@ const ProductsContainer = styled.div`
   width: 100vw;
   padding-top: 45px;
   padding-left: 10px;
-  background-color: ${({ theme }) => theme.colors.contrastText};
+  background-color: var(--contrastText);
   h1 {
       text-align: center;
   }
 `;
 
 const Div = styled.div`
-  border-bottom: 2px solid ${({ theme }) => theme.colors.gray};
+  border-bottom: 2px solid var(--gray);
   width: 100%;
   display: flex;
   padding: 10px;
